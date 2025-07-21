@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จำลองการบินโดรน TORO - ลากบล็อค</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/blockly@10.4.3/blockly.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>จำลองการบินโดรน TORO</h1>
+    
+    <div class="main-content">
+      <div id="blocklyDiv"></div>
+      
+      <div class="controls">
+        <div class="stats">
+          <div id="timerLabel">เวลาบิน: 0.0 วินาที</div>
+          <div id="distanceLabel">ระยะทางบิน: 0.0 เซนติเมตร</div>
+          <div id="heightLabel">ความสูง: 0.0 เซนติเมตร</div>
+          <div class="battery-container">
+            ระดับแบตเตอรี่:
+            <div class="battery-progress">
+              <div id="batteryBar" class="battery-bar-fill"></div>
+            </div>
+            <span id="batteryText">100%</span>
+          </div>
+        </div>
+        
+        <div class="buttons">
+          <button onclick="simulator.toggleMode()">สลับโหมด (จำลอง/จริง)</button>
+          <button onclick="connectToDrone()">เชื่อมต่อโดรน</button>
+          <button onclick="runCode()">รันโปรแกรม</button>
+          <button onclick="reset()">🔄 รีเซ็ต</button>
+        </div>
+        
+        <canvas id="droneCanvas" width="500" height="500"></canvas>
+        <textarea id="logBox" readonly></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script src="simulator.js"></script>
+  <script src="utils.js"></script>
+  <script src="blocks.js"></script>
+  <script src="generator.js"></script>
+</body>
+</html>
